@@ -84,7 +84,7 @@ export const components = [
       </div>
     ),
     code: `import { Sparkles } from "lucide-react";
-    const Card = () => (
+const Card = () => (
   <div className="bg-white dark:bg-neutral-800 p-8 rounded-xl shadow-lg hover:shadow-[0_4px_10px_rgba(255,255,255,0.05)] transition-all duration-300">
     <div className="flex justify-center mb-4">
       <Sparkles className="w-8 h-8 text-orange-500" />

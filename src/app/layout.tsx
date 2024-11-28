@@ -1,9 +1,9 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Inter, Bungee_Spice } from "next/font/google";
 import Link from "next/link";
-import Image from "next/image";
 
 const inter = Inter({ subsets: ["latin"] });
+const bungeeSpice = Bungee_Spice({ weight:["400"], subsets: ["latin"] });
 
 export default function RootLayout({
   children,
@@ -20,14 +20,14 @@ export default function RootLayout({
                 href="/"
                 className="flex items-center gap-2 hover:opacity-80 transition-opacity"
               >
-                <Image
+                {/* <Image
                   src="https://img.freepik.com/free-psd/claw-mark-illustration_23-2151600217.jpg"
                   alt="logo"
                   height={20}
                   width={30}
                   className="rounded-lg"
-                />
-                <span className="font-semibold text-lg">scratch</span>
+                /> */}
+                <span className={`${bungeeSpice.className} font-semibold text-lg`}>scratch</span>
               </Link>
               <div className="flex gap-6">
                 <Link
