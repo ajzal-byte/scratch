@@ -1,101 +1,116 @@
-import Image from "next/image";
+import { Search } from "lucide-react";
+import { componentCategroies, featureCards } from "@/lib/data";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <main className="min-h-screen bg-[#fdf4f8] dark:bg-neutral-900 relative overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute top-20 left-20 w-24 h-24 bg-white rounded-full blur-xl opacity-50" />
+      <div className="absolute top-40 right-40 w-16 h-16 bg-white rounded-full blur-xl opacity-50" />
+      <div className="absolute bottom-40 left-1/4 w-20 h-20 bg-white rounded-full blur-xl opacity-50" />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative">
+        <div className="text-center mb-16">
+          {/* <div className="flex items-center justify-center gap-2 mb-6">
+            <span className="text-4xl">
+              uncover <span className="font-bold">2.0</span>
+            </span>
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src="https://framerusercontent.com/images/KK2UtPCTqDRXrAalKbwAgOWoiZM.svg"
+              alt="logo"
+              height={23}
+              width={23}
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          </div> */}
+
+          <div className="text-neutral-600 dark:text-neutral-400 mb-4">
+            👋 Hello, creative person!
+          </div>
+
+          <h1 className="text-5xl sm:text-7xl font-bold text-neutral-900 dark:text-white mb-6 max-w-4xl mx-auto leading-tight">
+            Don't start from blank components ever again
+          </h1>
+
+          <p className="text-xl text-neutral-600 dark:text-neutral-400 mb-12 max-w-2xl mx-auto">
+            A growing library of beautiful and responsive React/Next.js
+            components. Simply find a component you like, copy the code, and
+            paste it into your project.
+          </p>
+
+          {/* Search bar */}
+          <div className="max-w-2xl mx-auto mb-12">
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="Search 300+ components"
+                className="w-full px-6 py-4 rounded-xl bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 focus:outline-none focus:ring-2 focus:ring-orange-500 shadow-sm"
+              />
+              <button className="absolute right-3 top-1/2 -translate-y-1/2 p-2 bg-neutral-900 dark:bg-orange-500 text-white rounded-lg">
+                <Search className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+
+          {/* Component categories */}
+          <div className="flex flex-wrap justify-center gap-3 mb-16">
+            {componentCategroies.map((item, index) => (
+              <button
+                key={index}
+                className="px-4 py-2 rounded-full bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-sm flex items-center gap-2 relative overflow-hidden group"
+              >
+                <span className="absolute inset-0 bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 opacity-0 transition-opacity duration-300 group-hover:opacity-20 rounded-full"></span>
+                <span className="absolute -inset-1 rounded-full border border-transparent group-hover:border-orange-400 dark:group-hover:border-orange-500 transition-all duration-300"></span>
+                {item.icon}
+                <span className="relative">{item.label}</span>
+              </button>
+            ))}
+          </div>
+
+          {/* Feature cards */}
+          <div className="mt-24 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {featureCards.map((item, index) => (
+              <div
+                key={index}
+                className="bg-white dark:bg-neutral-800 p-6 rounded-xl shadow-lg hover:shadow-[0_4px_10px_rgba(255,255,255,0.05)] transition-shadow"
+              >
+                <div className="flex justify-center mb-4">{item.icon}</div>
+                <h3 className="text-xl font-semibold text-center mb-2 text-neutral-900 dark:text-neutral-100">
+                  {item.title}
+                </h3>
+                <p className="text-center text-neutral-600 dark:text-neutral-400">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </div>
+    </main>
   );
+}
+
+{
+  /* Preview cards */
+}
+{
+  /* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-white dark:bg-neutral-800 rounded-xl shadow-sm p-6 text-left">
+              <h3 className="text-lg font-semibold mb-2">Headers</h3>
+              <p className="text-neutral-600 dark:text-neutral-400 text-sm">
+                Beautiful and responsive header components for your website.
+              </p>
+            </div>
+            <div className="bg-white dark:bg-neutral-800 rounded-xl shadow-sm p-6 text-left">
+              <h3 className="text-lg font-semibold mb-2">Hero Sections</h3>
+              <p className="text-neutral-600 dark:text-neutral-400 text-sm">
+                Eye-catching hero sections to grab your visitors' attention.
+              </p>
+            </div>
+            <div className="bg-white dark:bg-neutral-800 rounded-xl shadow-sm p-6 text-left">
+              <h3 className="text-lg font-semibold mb-2">Forms</h3>
+              <p className="text-neutral-600 dark:text-neutral-400 text-sm">
+                User-friendly form components with validation and styling.
+              </p>
+            </div>
+          </div> */
 }
